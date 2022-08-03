@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float swimSpeed;
+
+    bool inWater;
 
     private void Awake()
     {
@@ -18,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        //flips the sprite
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
         if (Input.GetKey(KeyCode.Space) && isGrounded())
@@ -26,17 +30,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // water check that didnt work
-        /*if (inWater == true)
+        if (isGrounded() && inWater == true)
         {
-            body.velocity = new Vector2(Input.GetAxis("Vertical") * swim, body.velocity.x);
-            body.velocity = new Vector2(body.velocity.y, swim);
-        }*/ 
-
+            if (Input.GetKey(KeyCode.W))
+            {
+                body.velocity = new Vector2(body.velocity.x, swimSpeed);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                body.velocity = new Vector2(body.velocity.x, swimSpeed);
+            }
+        }
     }
 
     private void Jump()
     {
-        if (isGrounded())
+        if (isGrounded() && inWater == false)
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
         }
@@ -50,10 +59,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }*/
 
-        private bool isGrounded()
+    private bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Water") == true)
+        {
+            inWater = true;
+        }
     }
 
 }

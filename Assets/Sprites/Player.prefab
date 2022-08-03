@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4201603479965623436}
   - component: {fileID: 3795193426837358532}
-  m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
+  m_Layer: 4
+  m_Name: Player
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
