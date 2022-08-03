@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // movement in water
+    [HideInInspector] public bool swimming;
+    [HideInInspector] public Vector2 swimDir;
+    [SerializeField] private float swimSpeed;
+    private float dirX;
+    private float dirY;
+    bool inWater;
+
+    // movement on ground
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
+
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float swimSpeed;
 
-    bool inWater;
 
     private void Awake()
     {
@@ -27,19 +35,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && isGrounded())
         {
             Jump();
-        }
-
-        // water check that didnt work
-        if (isGrounded() && inWater == true)
-        {
-            if (Input.GetKey(KeyCode.W))
-            {
-                body.velocity = new Vector2(body.velocity.x, swimSpeed);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                body.velocity = new Vector2(body.velocity.x, swimSpeed);
-            }
         }
     }
 
@@ -64,13 +59,4 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Water") == true)
-        {
-            inWater = true;
-        }
-    }
-
 }
