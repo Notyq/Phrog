@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    // Roomn Camera
+    // Room Camera
     [SerializeField] private float speed;
     private float currentPosX;
     private Vector3 velocity = Vector3.zero;
