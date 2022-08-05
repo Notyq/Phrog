@@ -20,6 +20,7 @@ public class Eagle : Damage
     }
     private void Update()
     {
+
         if (attacking)
         {
             transform.Translate(destination * Time.deltaTime * speed);
@@ -47,6 +48,14 @@ public class Eagle : Damage
             {
                 attacking = true;
                 destination = directions[i];
+                if (destination.x >= 0)
+                {
+                    transform.localScale = new Vector3((float)-0.3, (float)0.3, (float)0.3);
+                }
+                else if (destination.x < 0)
+                {
+                    transform.localScale = new Vector3((float)0.3, (float)0.3, (float)0.3);
+                }
                 checkTimer = 0;
             }
         }
