@@ -6,10 +6,12 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
+    public Animator anim;
 
     private void Awake()
     {
         currentHealth = startingHealth;
+        anim = GetComponent<Animator>();
     }
     public void TakeDamage(float _damage)
     {
