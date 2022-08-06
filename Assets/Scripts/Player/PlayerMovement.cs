@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-8,8,8);
 
         //Set animator parameters
-        //anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", isGrounded());
         anim.SetBool("wall", onWall());
 
