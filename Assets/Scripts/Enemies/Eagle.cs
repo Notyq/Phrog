@@ -24,6 +24,7 @@ public class Eagle : Damage
         if (attacking)
         {
             transform.Translate(destination * Time.deltaTime * speed);
+            
         }
         else
         {
@@ -50,11 +51,11 @@ public class Eagle : Damage
                 destination = directions[i];
                 if (destination.x >= 0)
                 {
-                    transform.localScale = new Vector3((float)-0.3, (float)0.3, (float)0.3);
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 }
                 else if (destination.x < 0)
                 {
-                    transform.localScale = new Vector3((float)0.3, (float)0.3, (float)0.3);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 }
                 checkTimer = 0;
             }
