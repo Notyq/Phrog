@@ -24,6 +24,7 @@ public class EaglePatrol : MonoBehaviour
             if (enemy.position.x >= leftEdge.position.x)
             {
                 MoveInDirection(-1);
+                enemy.localScale = new Vector3((float)0.3, (float)0.3, (float)0.3);
             }
             else
             {
@@ -35,6 +36,7 @@ public class EaglePatrol : MonoBehaviour
             if (enemy.position.x <= rightEdge.position.x)
             {
                 MoveInDirection(1);
+                enemy.localScale = new Vector3((float)-0.3, (float)0.3, (float)0.3);
             }
             else
             {
