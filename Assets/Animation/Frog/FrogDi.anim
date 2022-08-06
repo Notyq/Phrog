@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FrogLand
+  m_Name: FrogDi
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 5356f9dcb9412764a820ac1c04c3a801, type: 3}
+      value: {fileID: 21300000, guid: 37d62f00b4fb50c428d8dd4522cff961, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 096faa1d68a86de439d3119eb935ab76, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 5fa49d335331aa04781223fb983c583a, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 098340e6684aa4a439d3b3048386b646, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: d321933f39bbcc64ab3fedbe50985af3, type: 3}
+      value: {fileID: 21300000, guid: 3c178901f10c76c4bb146f0757c25b1d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 5356f9dcb9412764a820ac1c04c3a801, type: 3}
-    - {fileID: 21300000, guid: 096faa1d68a86de439d3119eb935ab76, type: 3}
-    - {fileID: 21300000, guid: 5fa49d335331aa04781223fb983c583a, type: 3}
-    - {fileID: 21300000, guid: 098340e6684aa4a439d3b3048386b646, type: 3}
-    - {fileID: 21300000, guid: d321933f39bbcc64ab3fedbe50985af3, type: 3}
+    - {fileID: 21300000, guid: 37d62f00b4fb50c428d8dd4522cff961, type: 3}
+    - {fileID: 21300000, guid: 3c178901f10c76c4bb146f0757c25b1d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

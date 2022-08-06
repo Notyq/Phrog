@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
     public Animator anim;
+    private bool dead;
 
     private void Awake()
     {
@@ -20,10 +21,17 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
         {
             //player hurt
+            anim.SetTrigger("hurt");
         }
         else
         {
             //player dead
+            if (!dead)
+            {
+                anim.SetTrigger("die");
+                GetComponent<PlayerMovement>().enabled = false;
+                dead = true;
+            }
         }
     }
 
