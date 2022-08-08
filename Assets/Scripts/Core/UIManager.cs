@@ -7,11 +7,15 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject gameEndScreen;
+    [SerializeField] private GameObject gameStartScreen;
+
+    private UIManager uiManager;
 
     private void Awake()
     {
         gameOverScreen.SetActive(false);
         gameEndScreen.SetActive(false);
+        gameStartScreen.SetActive(true);
     }
     public void GameOver()
     {
@@ -24,12 +28,18 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 
     public void Quit()
     {
         // Application.Quit();                 <------ for build
         UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(0);
+        uiManager.gameStartScreen.SetActive(false);
     }
 }
