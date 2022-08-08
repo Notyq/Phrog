@@ -1,23 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class EnemyPathfinding : MonoBehaviour
+namespace Enemies
 {
-    public AIPath aiPath;
-
-    // Update is called once per frame
-    void Update()
+    public class EnemyPathfinding : MonoBehaviour
     {
-        if (aiPath.desiredVelocity.x >= .01f)
+        public AIPath aiPath;
+
+        // Update is called once per frame
+        void Update()
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (aiPath.desiredVelocity.x <= -.01f)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            if (aiPath.desiredVelocity.x >= .01f)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else if (aiPath.desiredVelocity.x <= -.01f)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
     }
 }
