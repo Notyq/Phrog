@@ -450,7 +450,7 @@ MonoBehaviour:
   radius: 1.02
   height: 2
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 779749404}
   - component: {fileID: 779749403}
   - component: {fileID: 779749405}
+  - component: {fileID: 779749406}
   m_Layer: 0
   m_Name: Eagle
   m_TagString: Untagged
@@ -743,6 +744,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &779749406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779749402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8598ef6af014c7949b4cd5d7e60e7d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiPath: {fileID: 255429004}
 --- !u!1 &823793602
 GameObject:
   m_ObjectHideFlags: 0
