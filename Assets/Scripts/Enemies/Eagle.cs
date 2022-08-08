@@ -20,11 +20,9 @@ public class Eagle : Damage
     }
     private void Update()
     {
-
         if (attacking)
         {
             transform.Translate(destination * Time.deltaTime * speed);
-            
         }
         else
         {
@@ -45,18 +43,10 @@ public class Eagle : Damage
             Debug.DrawRay(transform.position, directions[i], Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, directions[i], range, playerLayer);
 
-            if(hit.collider != null && !attacking)
+            if (hit.collider != null && !attacking)
             {
                 attacking = true;
                 destination = directions[i];
-                if (destination.x >= 0)
-                {
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                }
-                else if (destination.x < 0)
-                {
-                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                }
                 checkTimer = 0;
             }
         }
