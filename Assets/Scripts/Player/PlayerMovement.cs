@@ -28,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
         //Flip player when moving left-right
         if (horizontalInput > 0.01f)
-            transform.localScale = new Vector3(8,8,8);
+            transform.localScale = new Vector3((float)0.8, (float)0.8, (float)0.8);
         else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-8,8,8);
+            transform.localScale = new Vector3((float)-0.8, (float)0.8, (float)0.8);
 
         //Set animator parameters
         anim.SetBool("grounded", isGrounded());

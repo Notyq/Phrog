@@ -14,11 +14,13 @@ public class Health : MonoBehaviour
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
 
+    private UIManager uiManager;
     public void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        uiManager = FindObjectOfType<UIManager>();
     }
     public void TakeDamage(float _damage)
     {
@@ -36,6 +38,9 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
                 dead = true;
+
+                uiManager.GameOver();
+                return; //code stops
             }
         }
     }
