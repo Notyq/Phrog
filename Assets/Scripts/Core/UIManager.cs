@@ -25,17 +25,19 @@ public class UIManager : MonoBehaviour
     }
     public void Pause()
     {
+        Time.timeScale = 0;
         gamePauseScreen.SetActive(true);
     }
 
     public void ResumeGame()
     {
+        Time.timeScale = 1;
         gamePauseScreen.SetActive(false);
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void Quit()

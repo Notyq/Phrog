@@ -27,7 +27,7 @@ public class SelectionArrow : MonoBehaviour
         }
 
         // interact with options
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
         {
             Interact();
         }

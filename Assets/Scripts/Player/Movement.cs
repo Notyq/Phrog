@@ -17,7 +17,7 @@ namespace Player
         private UIManager uiManager;
 
         // Update is called once per frame
-        private void Start()
+        private void Awake()
         {
             mController = GetComponent<CharacterController2D>();
             mAnimator = GetComponent<Animator>();
@@ -40,13 +40,11 @@ namespace Player
 
             if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
             {
-                Time.timeScale = 0;
                 uiManager.Pause();
                 isPaused = true;
             }
             else if (Input.GetKeyDown(KeyCode.Escape) && isPaused != false)
             {
-                Time.timeScale = 1;
                 uiManager.ResumeGame();
                 isPaused = false;
             }
