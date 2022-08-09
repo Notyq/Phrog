@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject gameEndScreen;
     [SerializeField] private GameObject gamePauseScreen;
+    [SerializeField] private GameObject gameStartScreen;
+
 
     private void Awake()
     {
@@ -37,10 +39,16 @@ public class UIManager : MonoBehaviour
         gamePauseScreen.SetActive(false);
     }
 
+    public void PlayGame()
+    {
+        SceneManager.LoadSceneAsync(1);
+        gameStartScreen.SetActive(false);
+    }
+
     public void Restart()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()
