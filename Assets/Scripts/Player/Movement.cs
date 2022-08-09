@@ -12,12 +12,16 @@ namespace Player
         private float mHorizontalInput;
         private bool mJump = false;
         private float mJumpCharge = 0f;
+        private bool isPaused;
+
+        private UIManager uiManager;
 
         // Update is called once per frame
         private void Start()
         {
             mController = GetComponent<CharacterController2D>();
             mAnimator = GetComponent<Animator>();
+            uiManager = FindObjectOfType<UIManager>();
         }
 
         private void Update()
@@ -32,6 +36,19 @@ namespace Player
             if (Input.GetButtonUp("Jump"))
             {
                 mJump = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
+            {
+                Time.timeScale = 0;
+                uiManager.Pause();
+                isPaused = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && isPaused != false)
+            {
+                Time.timeScale = 1;
+                uiManager.ResumeGame();
+                isPaused = false;
             }
         }
 
