@@ -64,6 +64,7 @@ namespace Player
                 return;
             }
             mController.Move(mHorizontalInput * Time.deltaTime, false, mJump, mJumpCharge);
+            mAnimator.SetBool("jump", mJump);
         }
 
         public void OnLanding()

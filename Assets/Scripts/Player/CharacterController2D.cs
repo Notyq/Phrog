@@ -31,6 +31,7 @@ namespace Player
 		private Rigidbody2D mRigidbody2D;
 		private Vector3 mVelocity = Vector3.zero;
 		private bool mWasCrouching;
+		private Animator anim;
 
 		private void Awake()
 		{
@@ -41,6 +42,8 @@ namespace Player
 			onCrouchEvent ??= new BoolEvent();
 			
 			boxCollider2D = GetComponent<BoxCollider2D>();
+
+			anim = GetComponent<Animator>();
 
 		}
 
@@ -133,6 +136,7 @@ namespace Player
 				mGrounded = false;
 				mRigidbody2D.AddForce(new Vector2(0f, jumpForce * jumpCharge));
 			}
+			anim.SetBool("grounded", mGrounded);
 		}
 
 

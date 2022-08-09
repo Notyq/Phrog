@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            // anim.SetTrigger("hurt");
+            anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
             SoundManager.instance.PlaySound(hurtSound);
         }
@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
-                // anim.SetTrigger("die");
+                anim.SetTrigger("die");
                 GetComponent<Movement>().enabled = false;
                 dead = true;
 
