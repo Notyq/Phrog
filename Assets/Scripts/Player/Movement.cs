@@ -7,49 +7,46 @@ namespace Player
     {
         [SerializeField] private float runSpeed = 80f;
         [SerializeField] private float chargeSpeed = 2;
-        private Animator m_Animator;
-        private CharacterController2D m_Controller;
-        private float m_HorizontalInput;
-        private bool m_Jump = false;
-        private float m_JumpCharge = 0f;
+        private Animator mAnimator;
+        private CharacterController2D mController;
+        private float mHorizontalInput;
+        private bool mJump = false;
+        private float mJumpCharge = 0f;
 
         // Update is called once per frame
         private void Start()
         {
-            m_Controller = GetComponent<CharacterController2D>();
-            m_Animator = GetComponent<Animator>();
+            mController = GetComponent<CharacterController2D>();
+            mAnimator = GetComponent<Animator>();
         }
 
         private void Update()
         {
-            m_HorizontalInput = Input.GetAxis("Horizontal") * runSpeed;
-            
-            // m_Animator.SetFloat("Speed", Mathf.Abs(m_HorizontalInput));
+            mHorizontalInput = Input.GetAxis("Horizontal") * runSpeed;
 
             if (Input.GetButton("Jump"))
             {
-                m_JumpCharge += Time.deltaTime * chargeSpeed;
+                mJumpCharge += Time.deltaTime * chargeSpeed;
             }
 
             if (Input.GetButtonUp("Jump"))
             {
-                // m_Animator.SetBool("IsJumping", true);
-                m_Jump = true;
+                mJump = true;
             }
         }
 
         private void FixedUpdate()
         {
-            if (m_Jump)
+            if (mJump)
             {
-                m_JumpCharge = m_JumpCharge < 1 ? 1 : m_JumpCharge > 2 ? 2 : m_JumpCharge;
-                m_Controller.Move(m_HorizontalInput * Time.deltaTime, false, m_Jump, m_JumpCharge);
-                m_JumpCharge = 0f;        
-                m_Jump = false;
+                mJumpCharge = mJumpCharge < 1 ? 1 : mJumpCharge > 2 ? 2 : mJumpCharge;
+                mController.Move(mHorizontalInput * Time.deltaTime, false, mJump, mJumpCharge);
+                mJumpCharge = 0f;
+                mJump = false;
 
                 return;
             }
-            m_Controller.Move(m_HorizontalInput * Time.deltaTime, false, m_Jump, m_JumpCharge);
+            mController.Move(mHorizontalInput * Time.deltaTime, false, mJump, mJumpCharge);
         }
 
         public void OnLanding()

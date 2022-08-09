@@ -130,7 +130,6 @@ namespace Player
 			RaycastHit2D raycastHit = Physics2D.BoxCast(bounds.center, bounds.size, 0, new Vector2(transform.localScale.x, 0), 1f, wallLayer);
 			if ((mGrounded || raycastHit.collider != null) && jump)
 			{
-				Debug.Log("HELLO WORLD");
 				mGrounded = false;
 				mRigidbody2D.AddForce(new Vector2(0f, jumpForce * jumpCharge));
 			}
