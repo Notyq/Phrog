@@ -7,6 +7,7 @@ namespace Enemies
     {
         public float damage = 1f;
         private bool isColliding;
+        private float moveSpeed = 50f;
 
         private void Update()
         {
@@ -21,6 +22,7 @@ namespace Enemies
             if (col.CompareTag("Player"))
             {
                 col.GetComponent<Health>().TakeDamage(damage);
+                // transform.Translate (Vector3.back * moveSpeed * Time.deltaTime);
             }
         }
     }
