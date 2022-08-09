@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndGoal : MonoBehaviour
 {
     private UIManager uiManager;
+    [SerializeField] private AudioClip winSound;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class EndGoal : MonoBehaviour
         if (collision.tag == "Player")
         {
             uiManager.GameEnd();
-            return;
+            SoundManager.instance.PlaySound(winSound);
         }
     }
 }

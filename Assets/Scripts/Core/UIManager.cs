@@ -17,11 +17,13 @@ public class UIManager : MonoBehaviour
     }
     public void GameOver()
     {
+        Time.timeScale = 0;
         gameOverScreen.SetActive(true);
     }
     public void GameEnd()
     {
         gameEndScreen.SetActive(true);
+        Time.timeScale = 0;
     }
     public void Pause()
     {
@@ -37,6 +39,7 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 

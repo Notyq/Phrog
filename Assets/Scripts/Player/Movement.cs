@@ -7,6 +7,7 @@ namespace Player
     {
         [SerializeField] private float runSpeed = 80f;
         [SerializeField] private float chargeSpeed = 2;
+        [SerializeField] private AudioClip jumpSound;
         private Animator mAnimator;
         private CharacterController2D mController;
         private float mHorizontalInput;
@@ -56,6 +57,7 @@ namespace Player
             {
                 mJumpCharge = mJumpCharge < 1 ? 1 : mJumpCharge > 2 ? 2 : mJumpCharge;
                 mController.Move(mHorizontalInput * Time.deltaTime, false, mJump, mJumpCharge);
+                SoundManager.instance.PlaySound(jumpSound);
                 mJumpCharge = 0f;
                 mJump = false;
 

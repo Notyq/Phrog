@@ -15,6 +15,12 @@ public class Health : MonoBehaviour
     private bool dead;
     private SpriteRenderer spriteRend;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip deadSound;
+    [SerializeField] private AudioClip hurtSound;
+
+
+
     private UIManager uiManager;
     public float currentHealth { get; private set; }
 
@@ -34,6 +40,7 @@ public class Health : MonoBehaviour
         {
             // anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
+            SoundManager.instance.PlaySound(hurtSound);
         }
         else
         {
@@ -44,7 +51,7 @@ public class Health : MonoBehaviour
                 dead = true;
 
                 uiManager.GameOver();
-                return; //code stops
+                SoundManager.instance.PlaySound(deadSound);
             }
         }
     }
